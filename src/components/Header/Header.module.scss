@@ -1,0 +1,23 @@
+.header {
+    margin: 40px 0;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: transparent;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
