@@ -1,7 +1,6 @@
 import { useStore } from "../../store/store"
 import styles from "./Basket.module.scss"
 import { IoMdCloseCircle } from "react-icons/io"
-// import img from "../../assets/cart/4.jpg"
 
 function Basket({ basket, closeBasket }) {
   const { cart, removeFromCart } = useStore()
@@ -10,7 +9,7 @@ function Basket({ basket, closeBasket }) {
       {basket && (
         <section className={styles.basket}>
           <div className={styles.inner}>
-            <div>
+            <div className={styles.block}>
               <div className={styles.item}>
                 <h3 className={styles.title}>Корзина</h3>
                 <IoMdCloseCircle onClick={closeBasket} />

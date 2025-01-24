@@ -1,14 +1,26 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useStore } from "../../store/store"
 import { FaRegSquarePlus } from "react-icons/fa6"
 import { IoCheckmarkCircleSharp } from "react-icons/io5"
 import styles from "./Cart.module.scss"
 
 function Cart({ product, addToCart }) {
-  const [add, setAdd] = useState(<FaRegSquarePlus />)
+  const { cart, removeFromCart } = useStore()
+  const [isAdded, setIsAdded] = useState(false)
+
+  useEffect(() => {
+    const exists = cart.some((item) => item.id === product.id)
+    setIsAdded(exists)
+  }, [cart, product.id])
 
   const handleClick = () => {
-    addToCart(product)
-    setAdd(<IoCheckmarkCircleSharp />)
+    if (isAdded) {
+      removeFromCart(product.id)
+      setIsAdded(false)
+    } else {
+      addToCart(product)
+      setIsAdded(true)
+    }
   }
 
   return (
@@ -24,7 +36,7 @@ function Cart({ product, addToCart }) {
             <span className={styles.price}>{product.price.toLocaleString()} руб.</span>
           </div>
           <button className={styles.plus} onClick={handleClick}>
-            {add}
+            {isAdded ? <IoCheckmarkCircleSharp /> : <FaRegSquarePlus />}
           </button>
         </div>
       </div>

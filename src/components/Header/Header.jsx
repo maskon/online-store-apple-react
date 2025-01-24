@@ -1,3 +1,4 @@
+import { useStore } from "../../store/store"
 import { useState } from "react"
 import styles from "./Header.module.scss"
 import Basket from "../Basket/Basket"
@@ -6,10 +7,10 @@ import { FcLike } from "react-icons/fc"
 import { FcBusinessman } from "react-icons/fc"
 
 function Header() {
+  const { cart } = useStore()
   const [basket, setBasket] = useState(false)
 
   const openBasket = () => setBasket(true)
-
   const closeBasket = () => setBasket(false)
 
   return (
@@ -20,7 +21,9 @@ function Header() {
           <div className={styles.item}>
             <button className={styles.block} onClick={openBasket}>
               <SlBasket />
-              <span>1205 руб.</span>
+              <span>
+                {cart.length ? cart.reduce((sum, current) => sum + current.price, 0).toLocaleString() : 0} руб.
+              </span>
             </button>
             <Basket basket={basket} closeBasket={closeBasket} />
             <button className={styles.block}>

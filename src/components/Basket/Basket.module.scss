@@ -18,6 +18,11 @@
     padding: 30px;
 }
 
+.block {
+    max-height: 80%;
+    overflow: auto;
+}
+
 .item {
     display: flex;
     align-items: center;
