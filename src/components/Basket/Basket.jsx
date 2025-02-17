@@ -1,7 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useStore } from "../../store/store"
+import { motion, AnimatePresence } from "framer-motion"
 
 import { IoMdCloseCircle } from "react-icons/io"
+import { TbBasketCancel } from "react-icons/tb"
 
 import Modal from "../Modal/Modal"
 
@@ -9,6 +11,11 @@ import styles from "./Basket.module.scss"
 
 function Basket() {
   const { cart, removeFromCart, basket, closeBasket, openModal } = useStore()
+  const [disabled, setDisabled] = useState(true)
+
+  useEffect(() => {
+    cart.length ? setDisabled(false) : setDisabled(true)
+  }, [cart])
 
   const bodyNoScroll = () => {
     basket
@@ -21,11 +28,17 @@ function Basket() {
   }, [basket])
 
   return (
-    <>
+    <AnimatePresence>
       {basket && (
         <section className={styles.basket}>
           <Modal />
-          <div className={styles.inner}>
+          <motion.div
+            exit={{ x: 400 }}
+            initial={{ x: 400 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.5 }}
+            className={styles.inner}
+          >
             <div className={styles.block}>
               <div className={styles.item}>
                 <h3 className={styles.title}>Корзина</h3>
@@ -45,7 +58,12 @@ function Basket() {
                   </div>
                 ))
               ) : (
-                <h3 className={styles.null}>Корзина пустая</h3>
+                <div className={styles.null}>
+                  <div>
+                    <TbBasketCancel />
+                  </div>
+                  <h3>Корзина пустая</h3>
+                </div>
               )}
             </div>
             <div>
@@ -55,14 +73,22 @@ function Basket() {
                   {cart.reduce((sum, current) => sum + current.price, 0).toLocaleString()} руб.
                 </span>
               </div>
-              <button className={styles.btn} onClick={openModal}>
+              <button
+                className={styles.btn}
+                style={{
+                  backgroundColor: disabled ? "#d5c3ca" : "#9DD458",
+                  cursor: disabled ? "not-allowed" : "pointer",
+                }}
+                disabled={disabled}
+                onClick={openModal}
+              >
                 Оформить заказ
               </button>
             </div>
-          </div>
+          </motion.div>
         </section>
       )}
-    </>
+    </AnimatePresence>
   )
 }
 

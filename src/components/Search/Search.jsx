@@ -4,12 +4,12 @@ import { useStore } from "../../store/store"
 import styles from "./Search.module.scss"
 
 function Search() {
-  const { filterProducts } = useStore()
+  const { filterSearch } = useStore()
   const [change, setChange] = useState("")
 
   const handleChange = (e) => {
     if (e.target.value === "") {
-      filterProducts("")
+      filterSearch("")
       setChange("")
     } else {
       setChange(e.target.value)
@@ -19,7 +19,7 @@ function Search() {
   return (
     <div className={styles.item}>
       <input onChange={handleChange} value={change} type='text' placeholder='Поиск...' />
-      <button onClick={() => filterProducts(change.toLowerCase())}>Найти</button>
+      <button onClick={() => filterSearch(change.toLowerCase())}>Найти</button>
     </div>
   )
 }

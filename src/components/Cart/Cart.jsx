@@ -3,17 +3,31 @@ import { useStore } from "../../store/store"
 
 import { FaRegSquarePlus } from "react-icons/fa6"
 import { IoCheckmarkCircleSharp } from "react-icons/io5"
+import { GoHeartFill } from "react-icons/go"
 
 import styles from "./Cart.module.scss"
 
-function Cart({ product, addToCart }) {
-  const { cart, removeFromCart } = useStore()
+function Cart({ product }) {
+  const { cart, addToCart, removeFromCart, addToFavorites, favorites, removeFromFavorites } = useStore()
   const [isAdded, setIsAdded] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
     const exists = cart.some((item) => item.id === product.id)
+    const reside = favorites.some((item) => item.id === product.id)
     setIsAdded(exists)
-  }, [cart, product.id])
+    setIsActive(reside)
+  }, [cart, product.id, favorites])
+
+  const addToBookmarks = () => {
+    if (isActive) {
+      removeFromFavorites(product.id)
+      setIsActive(false)
+    } else {
+      addToFavorites(product)
+      setIsActive(true)
+    }
+  }
 
   const handleClick = () => {
     if (isAdded) {
@@ -28,6 +42,9 @@ function Cart({ product, addToCart }) {
   return (
     <article className={styles.col}>
       <div className={styles.cart}>
+        <button onClick={addToBookmarks} className={!isActive ? styles.heart : styles.active}>
+          <GoHeartFill />
+        </button>
         <div className={styles.img}>
           <img src={product.img} alt={product.title} />
         </div>

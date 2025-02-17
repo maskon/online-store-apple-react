@@ -4,7 +4,8 @@ import axios from 'axios'
 export const useStore = create((set) => ({
     products: [], // Хранение продуктов
     cart: [], // Хранение товаров в корзине
-    filteres: [], // Фильтрация массивс продуктов products
+    favorites: [], // Хранение избранного
+    filteres: [], // Фильтрация массива продуктов products
 
     basket: false, // Состояние корзины
     modal: false, // Состояние модалки
@@ -32,8 +33,24 @@ export const useStore = create((set) => ({
 
     resetCart: () => set({ cart: [] }),
 
-    filterProducts: (change) => set((state) => ({
+    addToFavorites: (product) => set((state) => {
+        const exists = state.favorites.some(item => item.id === product.id)
+        if (!exists) {
+            return { favorites: [...state.favorites, product] }
+        }
+        return state
+    }),
+
+    removeFromFavorites: (productId) => set((state) => ({
+        favorites: state.favorites.filter(product => product.id !== productId)
+    })),
+
+    filterSearch: (change) => set((state) => ({
         filteres: state.products.filter((product) => product.title.toLowerCase().includes(change))
+    })),
+
+    filterCategory: (item) => set((state) => ({
+        filteres: state.products.filter((product) => product.category.toLowerCase() === item)
     })),
 
     openBasket: () => set({ basket: true }),

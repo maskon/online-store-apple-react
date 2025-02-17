@@ -6,7 +6,7 @@ import Cart from "../Cart/Cart"
 import styles from "./Carts.module.scss"
 
 function Carts() {
-  const { products, fetchProducts, addToCart, filteres } = useStore()
+  const { products, fetchProducts, filteres } = useStore()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -17,8 +17,7 @@ function Carts() {
     fetchData()
   }, [fetchProducts])
 
-  const displayContent = (content) =>
-    content.map((product) => <Cart key={product.id} product={product} addToCart={addToCart} />)
+  const displayContent = (content) => content.map((product) => <Cart key={product.id} product={product} />)
 
   return (
     <section>

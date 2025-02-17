@@ -8,6 +8,7 @@
 }
 
 .inner {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,6 +17,11 @@
     background-color: #fff;
     margin-left: auto;
     padding: 30px;
+
+    @media (max-width: 500px) {
+        width: 85%;
+        padding: 15px;
+    }
 }
 
 .block {
@@ -51,6 +57,10 @@
     padding: 20px;
     margin-bottom: 20px;
 
+    @media (max-width: 500px) {
+        padding: 8px;
+    }
+
     img {
         width: 70px;
         height: 70px;
@@ -61,12 +71,20 @@
     font-size: 14px;
     color: black;
     margin-bottom: 8px;
+
+    @media (max-width: 500px) {
+        font-size: 12px;
+    }
 }
 
 .cartPrice {
     font-size: 17px;
     font-weight: 700;
     color: black;
+
+    @media (max-width: 500px) {
+        font-size: 15px;
+    }
 }
 
 .delete {
@@ -77,6 +95,11 @@
     color: #FFFFFF;
     padding: 5px 15px;
     margin-top: 10px;
+
+    @media (max-width: 500px) {
+        font-size: 12px;
+        padding: 5px;
+    }
 }
 
 .between {
@@ -89,18 +112,35 @@
 
 .btn {
     width: 100%;
-    background-color: #9DD458;
+    // background-color: #9DD458;
     border-radius: 18px;
     font-size: 16px;
     font-weight: 700;
     color: #FFFFFF;
     padding: 18px;
+
+    @media (max-width: 500px) {
+        padding: 10px;
+    }
 }
 
 .null {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    color: rgba(0, 0, 0, 1);
-    margin: 50px auto;
+
+    svg {
+        width: 50px;
+        height: 50px;
+        color: #9DD458;
+    }
+
+    h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+    }
 }

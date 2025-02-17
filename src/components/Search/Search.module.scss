@@ -7,13 +7,9 @@
         padding: 5px 10px;
         margin-right: 5px;
 
-        @media (max-width: 440px) {
-            width: 160px;
-            margin-right: 3px;
-        }
 
         @media (max-width: 334px) {
-            width: 140px;
+            width: 73%;
             margin-right: 3px;
         }
     }
