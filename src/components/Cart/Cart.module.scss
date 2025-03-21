@@ -1,0 +1,137 @@
+.col {
+    flex: 0 1 25%;
+    padding: 0 10px;
+
+    @media (max-width: 977px) {
+        flex: 0 1 33.33%;
+    }
+
+    @media (max-width: 768px) {
+        flex: 0 1 50%;
+    }
+
+    @media (max-width: 500px) {
+        padding: 0 5px;
+    }
+    @media (max-width: 353px) {
+        flex: 0 1 100%;
+    }
+}
+
+.cart {
+    border: 1px solid #F3F3F3;
+    border-radius: 10%;
+    padding: 30px 20px;
+    box-shadow: 0px 14px 30px 0px #0000000D;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        border-radius: 0%;
+        padding: 15px 10px;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 18px;
+        color: #000000;
+        margin-bottom: 14px;
+
+        @media (max-width: 433px) {
+            font-size: 16px;
+        }
+    }
+}
+
+.heart {
+    width: 32px;
+    height: 32px;
+    background-color: #fff; // #FEF0F0
+    border-radius: 7px;
+    margin-bottom: 2px;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        color: #d9d9d9;
+    }
+}
+
+.active {
+    width: 32px;
+    height: 32px;
+    background-color: #FEF0F0;
+    border-radius: 7px;
+    margin-bottom: 2px;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        color: #FF8585;
+    }
+}
+
+.img {
+    width: 180px;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 14px;
+
+    @media (max-width: 433px) {
+        width: 140px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 180px;
+        height: 150px;
+        object-fit: cover;
+
+        @media (max-width: 433px) {
+            width: 140px;
+            height: 120px;
+        }
+    }
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        display: block;
+    }
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+
+    button {
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+
+        @media (max-width: 433px) {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+.text {
+    font-weight: 500;
+    color: #BDBDBD;
+    margin-bottom: 3px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+
+    @media (max-width: 433px) {
+        font-size: 16px;
+    }
+}
