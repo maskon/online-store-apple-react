@@ -1,0 +1,15 @@
+.item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+
+    @media (max-width: 500px) {
+        margin: 0 -5px;
+    }
+}
+
+.title {
+    font-size: 32px;
+    margin: 50px auto;
+}
