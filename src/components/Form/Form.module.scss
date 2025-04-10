@@ -1,0 +1,105 @@
+@use "../../scss/config.scss" as *;
+
+.item {
+    padding: 30px 0;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        padding: 20px 0;
+    }
+
+    input {
+        width: 100%;
+        border: 1px solid #d3d3d3;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+
+        &:focus {
+            box-shadow: 1px 1px 4px 0 $color-violet;
+        }
+    }
+
+    p {
+        color: red;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        background: $color-green;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 700;
+        border-radius: 10px;
+        padding: 12px 50px;
+        transition: background-color .3s ease;
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+            padding: 8px 50px;
+        }
+
+        svg {
+            color: $color-red;
+            font-size: 28px;
+
+            @media (max-width: 768px) {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+.close {
+    display: flex;
+    justify-content: end;
+    margin-right: auto;
+
+    button {
+        background-color: none;
+    }
+
+    svg {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        transition: color .3s ease;
+    }
+}
+
+.total {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: left;
+    color: $color-violet;
+    margin: 30px 0 50px;
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+        margin: 20px 0 35px;
+    }
+
+    span {
+        font-size: 16px;
+        color: #3d3d3d;
+    }
+}
+
+@media(hover: hover) {
+    .item {
+        button:hover {
+            background-color: #8bf707;
+        }
+    }
+    .close {
+        svg:hover {
+            color: #c0bebe;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@use "../../scss/config.scss" as *;
+
+.item {
+    position: relative;
+
+    input {
+        width: 250px;
+        border: 1px solid #d3d3d3;
+        border-radius: 10px;
+        padding: 5px 35px 5px 10px;
+        margin-right: 5px;
+        
+        @media (max-width: 334px) {
+            width: 76%;
+            margin-right: 3px;
+        }
+
+        &:focus {
+            box-shadow: 1px 1px 4px 0 $color-violet;
+        }
+    }
+
+    svg {
+        position: absolute;
+        top: 5px;
+        right: 70px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    button {
+        background-color: $color-green;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 5px;
+        padding: 5px 10px;
+        transition: background-color 0.3s ease;
+    }
+}
+
+@media(hover: hover) {
+    .item {
+        svg:hover {
+            color: #949494;
+        }    
+        button:hover {
+            background: #8bf707;
+        }
+    }
+}

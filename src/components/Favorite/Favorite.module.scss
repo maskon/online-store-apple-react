@@ -1,0 +1,134 @@
+.item {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+
+    @media (max-width: 433px) {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    }
+}
+
+.empty {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border: 1px solid #F3F3F3;
+    border-radius: 10%;
+    padding: 30px 20px;
+    box-shadow: 0px 14px 30px 0px #0000000D;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        border-radius: 0%;
+        padding: 15px 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.img {
+    width: 180px;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 14px;
+
+    @media (max-width: 433px) {
+        width: 140px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 180px;
+        height: 150px;
+        object-fit: cover;
+
+        @media (max-width: 433px) {
+            width: 140px;
+            height: 120px;
+        }
+    }
+}
+
+.title {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 14px;
+
+    @media (max-width: 433px) {
+        font-size: 16px;
+    }
+}
+
+.elem {
+    margin-top: auto;
+}
+
+.block {
+    span {
+        display: block;
+    }
+}
+
+.text {
+    font-weight: 500;
+    color: #BDBDBD;
+    margin-bottom: 3px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+
+    @media (max-width: 433px) {
+        font-size: 16px;
+    }
+}
+
+.center {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 50px auto;
+
+    @media (max-width: 768px) {
+        font-size: 22px;
+    }
+}
+
+.active {
+    width: 32px;
+    height: 32px;
+    background-color: #FEF0F0;
+    border-radius: 7px;
+    margin-bottom: 2px;
+
+    svg {
+        width: 16px;
+        height: 16px;
+        color: #FF8585;
+        transition: color .3s ease;
+    }
+}
+
+@media(hover: hover) {
+    .active {
+        svg:hover {
+            color: #f82323;
+        }
+    }
+}
