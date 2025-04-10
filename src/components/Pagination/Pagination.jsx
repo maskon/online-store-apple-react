@@ -1,7 +1,10 @@
+import { useEffect, useState } from "react"
+
 import { useStore } from "../../store/store"
 import { useStoreSearch } from "../../store/search.store"
-import { useEffect, useState } from "react"
+
 import Loader from "../Loader/Loader"
+
 import styles from "./Pagination.module.scss"
 
 function Pagination() {
