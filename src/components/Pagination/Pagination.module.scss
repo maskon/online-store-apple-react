@@ -36,6 +36,12 @@
     margin: 50px auto;
 }
 
+.ellipsis {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: default;
+  }
+
 @media(hover: hover) {
     .item {
         h3:hover {

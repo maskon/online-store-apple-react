@@ -19,7 +19,7 @@ function Carts() {
       }
     }
 
-    const debounceFetch = setTimeout(fetchData, 300) // Задержка 300 мс
+    const debounceFetch = setTimeout(fetchData, 300)
     return () => clearTimeout(debounceFetch)
   }, [fetchProducts, filterSearch])
 
